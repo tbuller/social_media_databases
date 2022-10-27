@@ -45,9 +45,11 @@ RSpec.describe AccountsRepo do
 
     it "deletes record from accounts" do
 
+
       repo = AccountsRepo.new
-      repo.delete("David")
-      expect{repo.find('1')[0].username}.to raise_error
+      repo.delete(1)
+      accounts = repo.all
+      expect(accounts.length).to eq 1
 
     end
 
