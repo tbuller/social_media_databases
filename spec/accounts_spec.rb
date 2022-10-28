@@ -59,5 +59,13 @@ RSpec.describe AccountsRepo do
       expect(repo.find('2')[0].email).to eq 'tim@yahoo.com'
     end
 
+    it 'finds account 1 with related posts' do
+      repository = AccountsRepo.new
+      account = repository.find_with_posts(3)
+  
+      expect(account.username).to eq('Tim')
+      expect(account.posts.length).to eq(1)
+    end
+
 
   end
